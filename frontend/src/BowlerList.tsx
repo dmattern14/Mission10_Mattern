@@ -26,12 +26,13 @@ function BowlerList () {
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>Last Name</th>
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>First Name</th>
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>Middle Initial</th>
+      <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>Team Name</th>
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>Address</th>
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>City</th>
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>State</th>
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>Zip</th>
       <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>Phone Number</th>
-      <th style={{ padding: "10px", borderBottom: "2px solid #ddd" }}>Team ID</th>
+      
     
     </tr>
   </thead>
@@ -43,12 +44,13 @@ function BowlerList () {
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerLastName}</td>
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerFirstName}</td>
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerMiddleInit}</td>
+        <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.teamName}</td>
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerAddress}</td>
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerCity}</td>
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerState}</td>
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerZip}</td>
         <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.bowlerPhoneNumber}</td>
-        <td style={{ padding: "8px", borderBottom: "1px solid #ddd" }}>{b.teamId}</td>
+        
         
       </tr>
     ))}
