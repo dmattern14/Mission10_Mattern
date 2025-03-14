@@ -26,7 +26,7 @@ namespace Mission10_Mattern.Controllers
                 .Include(b => b.Team) // Join Team table to get TeamName
                 .Select(b => new 
                 {
-                    b.BowlerID,
+                    b.BowlerId,
                     b.BowlerFirstName,
                     b.BowlerMiddleInit,
                     b.BowlerLastName,
