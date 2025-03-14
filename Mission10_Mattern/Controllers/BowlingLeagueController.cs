@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission10_Mattern.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Mission10_Mattern.Controllers
 {
@@ -8,19 +12,35 @@ namespace Mission10_Mattern.Controllers
     [ApiController]
     public class BowlingLeagueController : ControllerBase
     {
-        private BowlingDbContext _context;
-        
+        private readonly BowlingDbContext _context;
+
         public BowlingLeagueController(BowlingDbContext temp)
         {
             _context = temp;
         }
 
         [HttpGet(Name = "GetBowlingLeague")]
-        public List<Bowler> Get()
+        public async Task<ActionResult<List<object>>> Get()
         {
-            var BowlingList = _context.Bowlers.ToList();
-            return (BowlingList);
+            var BowlingList = await _context.Bowlers
+                .Include(b => b.Team) // Join Team table to get TeamName
+                .Select(b => new 
+                {
+                    b.BowlerID,
+                    b.BowlerFirstName,
+                    b.BowlerMiddleInit,
+                    b.BowlerLastName,
+                    b.BowlerAddress,
+                    b.BowlerCity,
+                    b.BowlerState,
+                    b.BowlerZip,
+                    b.BowlerPhoneNumber,
+                    b.TeamId,
+                    TeamName = b.Team.TeamName // Get TeamName from the Team table
+                })
+                .ToListAsync();
+
+            return Ok(BowlingList);
         }
     }
 }
-
